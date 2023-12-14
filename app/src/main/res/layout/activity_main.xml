@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <SearchView
+        android:id="@+id/searchView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:iconifiedByDefault="false"
+        android:queryHint="Search for a class"
+        android:visibility="gone"/>
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp"
+        android:layout_below="@id/searchView"
+        android:visibility="gone"/>
+
+    <Button
+        android:id="@+id/profBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Professors"
+        android:layout_toRightOf="@+id/searchView"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/appTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome to RateUWCourses!"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:textSize="50sp" />
+
+    <Button
+        android:id="@+id/appBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/appTitle"
+        android:layout_centerHorizontal="true"
+        android:text="Start" />
+
+</RelativeLayout>

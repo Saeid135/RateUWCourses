@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/txtName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"/>
+
+    <TextView
+        android:id="@+id/titleDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:text="@string/description"
+        android:layout_below="@id/txtName"/>
+
+    <TextView
+        android:id="@+id/txtDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="26sp"
+        android:layout_below="@id/titleDesc"/>
+
+    <TextView
+        android:id="@+id/titleProf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:text="@string/professor"
+        android:layout_below="@id/txtDesc"/>
+
+    <TextView
+        android:id="@+id/txtProf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="26sp"
+        android:layout_below="@id/titleProf"/>
+
+    <TextView
+        android:id="@+id/titleRating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:text="@string/rating"
+        android:layout_below="@id/txtProf"/>
+
+    <TextView
+        android:id="@+id/txtRating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="26sp"
+        android:layout_below="@id/titleRating"/>
+
+    <Button
+        android:id="@+id/positiveBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Helpful"
+        android:tag="Unchanged"
+        android:layout_below="@id/txtRating" />
+
+    <Button
+        android:id="@+id/negativeBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Unhelpful"
+        android:tag="Unchanged"
+        android:layout_below="@id/txtRating"
+        android:layout_toRightOf="@+id/positiveBtn" />
+
+
+</RelativeLayout>
