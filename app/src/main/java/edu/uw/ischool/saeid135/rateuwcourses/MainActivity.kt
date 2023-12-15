@@ -46,7 +46,7 @@ data class Courses(
     val name: String,
     val description: String,
     val professor: String,
-    val rating: Float
+    var rating: Float
 )
 
 interface courseRepository {
@@ -264,6 +264,8 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.report -> {
+                val intent = Intent(this, FilterProfessor::class.java)
+                startActivity(intent)
                 true
             }
 

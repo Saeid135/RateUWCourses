@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroundColor"
     tools:context=".MainActivity">
 
     <SearchView
@@ -38,6 +39,7 @@
         android:text="Welcome to RateUWCourses!"
         android:layout_centerHorizontal="true"
         android:gravity="center_horizontal"
+        android:layout_marginTop="40dp"
         android:textSize="50sp" />
 
     <Button
@@ -47,5 +49,22 @@
         android:layout_below="@id/appTitle"
         android:layout_centerHorizontal="true"
         android:text="Start" />
+
+    <EditText
+        android:id="@+id/enterVal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Describe the issue"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/enterBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/enterVal"
+        android:visibility="gone"
+        android:text="Enter" />
+
+
 
 </RelativeLayout>

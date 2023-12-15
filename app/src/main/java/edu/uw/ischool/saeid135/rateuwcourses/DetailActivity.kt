@@ -16,6 +16,18 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import edu.uw.ischool.saeid135.rateuwcourses.databinding.ActivityDetailBinding
+import okhttp3.MediaType
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.OkHttpClient
+import okhttp3.Request
+import okhttp3.RequestBody
+import java.io.File
+import java.io.InputStream
+import java.io.OutputStreamWriter
+import java.net.HttpURLConnection
+import java.net.URL
+import java.util.concurrent.Executor
+import java.util.concurrent.Executors
 
 class DetailActivity : AppCompatActivity() {
     private lateinit var txtDesc : TextView
@@ -65,6 +77,11 @@ class DetailActivity : AppCompatActivity() {
                 Log.i("Changed1", "Changed")
                 positiveBtn.setBackgroundColor(Color.parseColor("#00FF00"))
                 positiveBtn.tag = "Changed"
+                coursesList[keepTrack].rating = (coursesList[keepTrack].rating + 0.01).toFloat()
+                val newjson = gson.toJson(coursesList)
+                File(getExternalFilesDir(null).toString() + "/coursedata.json").writeText(
+                    newjson
+                )
             }
             else if (negativeBtn.tag == "Changed" && positiveBtn.tag == "Unchanged") {
                 Log.i("Changed2", "Changed")
@@ -72,27 +89,52 @@ class DetailActivity : AppCompatActivity() {
                 negativeBtn.setBackgroundColor(Color.parseColor("#FFFFFF"))
                 negativeBtn.tag = "Unchanged"
                 positiveBtn.tag = "Changed"
+                coursesList[keepTrack].rating = (coursesList[keepTrack].rating + 0.01).toFloat()
+                val newjson = gson.toJson(coursesList)
+                File(getExternalFilesDir(null).toString() + "/coursedata.json").writeText(
+                    newjson
+                )
             }
             else {
                 Log.i("Changed3", "Changed")
                 positiveBtn.setBackgroundColor(Color.parseColor("#FFFFFF"))
                 positiveBtn.tag = "Unchanged"
+                coursesList[keepTrack].rating = (coursesList[keepTrack].rating - 0.01).toFloat()
+                val newjson = gson.toJson(coursesList)
+                File(getExternalFilesDir(null).toString() + "/coursedata.json").writeText(
+                    newjson
+                )
             }
         }
         negativeBtn.setOnClickListener {
             if (negativeBtn.tag == "Unchanged" && positiveBtn.tag == "Unchanged") {
                 negativeBtn.setBackgroundColor(Color.parseColor("#FF0000"))
                 negativeBtn.tag = "Changed"
+                coursesList[keepTrack].rating = (coursesList[keepTrack].rating - 0.01).toFloat()
+                val newjson = gson.toJson(coursesList)
+                File(getExternalFilesDir(null).toString() + "/coursedata.json").writeText(
+                    newjson
+                )
             }
             else if (positiveBtn.tag == "Changed" && negativeBtn.tag == "Unchanged") {
                 negativeBtn.setBackgroundColor(Color.parseColor("#FF0000"))
                 positiveBtn.setBackgroundColor(Color.parseColor("#FFFFFF"))
                 positiveBtn.tag = "Unchanged"
                 negativeBtn.tag = "Changed"
+                coursesList[keepTrack].rating = (coursesList[keepTrack].rating - 0.01).toFloat()
+                val newjson = gson.toJson(coursesList)
+                File(getExternalFilesDir(null).toString() + "/coursedata.json").writeText(
+                    newjson
+                )
             }
             else {
                 negativeBtn.setBackgroundColor(Color.parseColor("#FFFFFF"))
                 negativeBtn.tag = "Unchanged"
+                coursesList[keepTrack].rating = (coursesList[keepTrack].rating + 0.01).toFloat()
+                val newjson = gson.toJson(coursesList)
+                File(getExternalFilesDir(null).toString() + "/coursedata.json").writeText(
+                    newjson
+                )
             }
         }
 
